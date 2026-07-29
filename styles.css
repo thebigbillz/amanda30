@@ -47,12 +47,14 @@ img{max-width:100%;display:block}
 .env-letter{
   position:absolute;left:6%;right:6%;top:8%;bottom:12%;z-index:2;
   background:var(--paper);border-radius:6px;
-  display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;
+  display:flex;align-items:center;justify-content:center;
   font-family:var(--script);font-size:1.5rem;color:var(--rose-deep);
   transition:transform .8s cubic-bezier(.22,1,.36,1) .35s;
   box-shadow:0 4px 14px rgba(51,36,28,.12);
 }
 .envelope-wrap:hover .env-letter{transform:translateY(-8px)}
+.env-letter span{opacity:0;transition:opacity .5s ease .55s}
+.envelope.open .env-letter span{opacity:1}
 .env-front{
   background:linear-gradient(180deg,#f2d7c6,#eccab6);
   clip-path:polygon(0 28%,50% 62%,100% 28%,100% 100%,0 100%);
@@ -125,7 +127,7 @@ section,header.hero{padding:clamp(4rem,9vw,8rem) clamp(1.2rem,6vw,5rem)}
 .hero-title{display:flex;flex-direction:column;align-items:center;line-height:1}
 .hero-script{font-family:var(--script);font-weight:400;font-size:clamp(2.6rem,7vw,4.6rem);color:var(--rose-deep);z-index:2;margin-bottom:-.35em}
 .hero-big{
-  font-family:var(--serif);font-weight:900;
+  font-family:var(--serif);font-weight:600;
   font-size:clamp(6.5rem,22vw,15rem);letter-spacing:-.04em;
   background:linear-gradient(160deg,var(--ink) 30%,var(--rose-deep) 75%,var(--gold));
   -webkit-background-clip:text;background-clip:text;color:transparent;
