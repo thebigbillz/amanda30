@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Amanda at Thirty ❤️</title>
+<meta name="description" content="A love letter for Amanda's 30th birthday." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,600&family=Pinyon+Script&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>" />
+</head>
+<body>
+
+<!-- ══════════ ENVELOPE INTRO ══════════ -->
+<div class="envelope-screen" id="envelopeScreen">
+  <div class="env-petals"></div>
+  <div class="envelope-wrap" id="envelopeWrap" role="button" tabindex="0" aria-label="Open your letter">
+    <div class="envelope">
+      <div class="env-back"></div>
+      <div class="env-letter"><span>my labubu ❤️</span></div>
+      <div class="env-front"></div>
+      <div class="env-flap"></div>
+      <div class="env-seal"><span>A</span></div>
+    </div>
+    <p class="env-hint">a letter arrived for you<span class="env-cta">tap the seal to open it</span></p>
+  </div>
+</div>
+
+<!-- ══════════ PETAL CANVAS ══════════ -->
+<canvas id="petals" aria-hidden="true"></canvas>
+<div class="cursor-dot" id="cursorDot" aria-hidden="true">❤</div>
+<div class="progress-stem" aria-hidden="true"><div class="progress-fill" id="progressFill"></div><span class="progress-flower" id="progressFlower">🌸</span></div>
+
+<main id="main">
+
+  <!-- ══════════ HERO ══════════ -->
+  <header class="hero" id="hero">
+    <div class="hero-bloom hero-bloom-left" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><g class="bloom-g"><ellipse class="petal-svg p1" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p2" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p3" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p4" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p5" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p6" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p7" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p8" cx="100" cy="60" rx="18" ry="38"/><circle cx="100" cy="100" r="16" class="bloom-heart"/></g></svg>
+    </div>
+    <div class="hero-bloom hero-bloom-right" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><g class="bloom-g"><ellipse class="petal-svg p1" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p2" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p3" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p4" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p5" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p6" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p7" cx="100" cy="60" rx="18" ry="38"/><ellipse class="petal-svg p8" cx="100" cy="60" rx="18" ry="38"/><circle cx="100" cy="100" r="16" class="bloom-heart"/></g></svg>
+    </div>
+
+    <p class="hero-eyebrow reveal">the 30th of July, in the year of your glow-up</p>
+    <h1 class="hero-title">
+      <span class="hero-script reveal">Happy</span>
+      <span class="hero-big reveal"><span class="count-num" id="countNum">30</span><span class="hero-th">th</span></span>
+      <span class="hero-name reveal">Amanda</span>
+    </h1>
+    <p class="hero-sub reveal">old woman<span class="stretch-n">nnnnnnnnn</span> 🤭 — and still, somehow,<br/>the most beautiful thing I have ever seen.</p>
+
+    <div class="hero-photo-wrap reveal">
+      <figure class="hero-photo tilt" data-tilt>
+        <img src="assets/img/amanda-pink.jpg" alt="Amanda, glowing in pink" />
+        <figcaption>the birthday girl herself</figcaption>
+      </figure>
+      <span class="hero-sticker s1">🌸</span>
+      <span class="hero-sticker s2">🎂</span>
+      <span class="hero-sticker s3">💌</span>
+    </div>
+
+    <div class="nick-marquee" aria-label="All the names I call you">
+      <div class="nick-track" id="nickTrack">
+        <span>Mama</span><i>✿</i><span>my 5′2″ queen</span><i>✿</i><span>my labubu</span><i>✿</i><span>Big&nbsp;Head</span><i>✿</i><span>Ola&nbsp;m</span><i>✿</i><span>baby girl, forever</span><i>✿</i>
+        <span>Mama</span><i>✿</i><span>my 5′2″ queen</span><i>✿</i><span>my labubu</span><i>✿</i><span>Big&nbsp;Head</span><i>✿</i><span>Ola&nbsp;m</span><i>✿</i><span>baby girl, forever</span><i>✿</i>
+      </div>
+    </div>
+
+    <a class="scroll-cue" href="#letter"><span>scroll, mama</span><em>↓</em></a>
+  </header>
+
+  <!-- ══════════ THE LETTER ══════════ -->
+  <section class="letter" id="letter">
+    <div class="letter-paper">
+      <div class="letter-stamp" aria-hidden="true">💌</div>
+      <p class="letter-line lo">Old womannnnnnnnnnnnnnnnnnnn 🤭😂</p>
+      <p class="letter-line">Hahahaha, that felt <em>so</em> good to say.</p>
+      <p class="letter-line">You are always going to be a baby girl to me.</p>
+      <p class="letter-line big">Happy Birthday, <span class="hl">Big Head</span> ❤️</p>
+      <p class="letter-line thirty-word">Thirty.</p>
+      <p class="letter-line">Such a beautiful milestone.</p>
+      <p class="letter-line">I really hope you're taking a moment to pause and appreciate the incredible woman you've become; <span class="hl">super smart</span>, <span class="hl">creative</span>, <span class="hl">ambitious</span>, <span class="hl">driven</span>, <span class="hl">ridiculously gorgeous</span>, adorably playful and caring woman I fell for.</p>
+      <p class="letter-line">And because it is your birthday, I will behave and not talk about the naughtiness and bad mouth 🤭❤️</p>
+      <p class="letter-line">As you step into this new decade, my prayer is that 30 brings you peace, clarity, favour <em>(you already have me sha)</em>, good health, genuine happiness, and the kind of success that feels both exciting and deeply fulfilling.</p>
+      <p class="letter-line">I pray your dreams become your everyday reality. People will look at you and call you <span class="hl">blessed and highly favoured</span> 😉 <em>(they will be right)</em>.</p>
+      <p class="letter-line">This year, be a little more selfish, put yourself first more often, choose yourself without guilt. Travel the world. <span class="hl">Spend my money</span>, even though I know you will be making plenty of your own 😌</p>
+      <p class="letter-line">May this chapter be filled with soft days, loud laughter, exciting opportunities, answered prayers, beautiful surprises, and countless moments that remind you how deeply loved and valuable you are.</p>
+      <p class="letter-line big">Happy Birthday, <span class="hl">Ola m</span></p>
+      <p class="letter-line">Thank you for being you.</p>
+      <p class="letter-line">Welcome to your 30s… finer, wiser, more accomplished, and somehow still managing to be this ridiculously adorable ✨</p>
+      <p class="letter-line sign">I love you, mama ❤️</p>
+    </div>
+  </section>
+
+  <!-- ══════════ GALLERY ══════════ -->
+  <section class="gallery" id="gallery">
+    <div class="section-head">
+      <p class="section-eyebrow">exhibit A through forever</p>
+      <h2 class="section-title"><span class="st-script">Thirty</span> looks <em>good</em> on you</h2>
+      <p class="section-sub">A small museum of my favourite person. Entry fee: one smile.</p>
+    </div>
+    <div class="masonry">
+      <figure class="card tilt" data-tilt><img src="assets/img/amanda-mustard-sit.jpg" alt="Amanda seated, mustard top and cap" loading="lazy"/><figcaption><span>CEO of stealing my heart</span></figcaption></figure>
+      <figure class="card tilt" data-tilt><img src="assets/img/amanda-desk-smile.jpg" alt="Amanda smiling at her desk" loading="lazy"/><figcaption><span>designer at work · heartbreaker on break</span></figcaption></figure>
+      <figure class="card tilt" data-tilt><img src="assets/img/amanda-blue.jpg" alt="Amanda in blue, mid-laugh" loading="lazy"/><figcaption><span>my 5′2″ queen, full frame</span></figcaption></figure>
+      <figure class="card tilt" data-tilt><img src="assets/img/amanda-neon.jpg" alt="Amanda in neon light" loading="lazy"/><figcaption><span>main character lighting, obviously</span></figcaption></figure>
+      <figure class="card tilt" data-tilt><img src="assets/img/amanda-stripes.jpg" alt="Amanda standing in striped trousers" loading="lazy"/><figcaption><span>the drip is intentional</span></figcaption></figure>
+      <figure class="card tilt" data-tilt><img src="assets/img/amanda-desk-lean.jpg" alt="Amanda leaning over her laptop" loading="lazy"/><figcaption><span>caught looking adorable. again.</span></figcaption></figure>
+      <figure class="card tilt" data-tilt><img src="assets/img/amanda-bw.jpg" alt="Amanda in black and white, smiling" loading="lazy"/><figcaption><span>timeless. literally.</span></figcaption></figure>
+      <figure class="card tilt" data-tilt><img src="assets/img/amanda-mustard-stand.jpg" alt="Amanda standing, mustard outfit" loading="lazy"/><figcaption><span>blessed &amp; highly favoured 😉</span></figcaption></figure>
+    </div>
+  </section>
+
+  <!-- ══════════ FILMS ══════════ -->
+  <section class="films" id="films">
+    <div class="section-head">
+      <p class="section-eyebrow">now showing</p>
+      <h2 class="section-title"><span class="st-script">Motion</span> pictures of my favourite person</h2>
+      <p class="section-sub">Critics call it “ridiculously adorable”. The critic is me.</p>
+    </div>
+    <div class="film-grid">
+      <div class="film"><video src="assets/video/clip-1.mp4" preload="metadata" playsinline></video><button class="film-play" aria-label="Play video">▶</button></div>
+      <div class="film"><video src="assets/video/clip-2.mp4" preload="metadata" playsinline></video><button class="film-play" aria-label="Play video">▶</button></div>
+      <div class="film"><video src="assets/video/clip-3.mp4" preload="metadata" playsinline></video><button class="film-play" aria-label="Play video">▶</button></div>
+      <div class="film"><video src="assets/video/clip-4.mp4" preload="metadata" playsinline></video><button class="film-play" aria-label="Play video">▶</button></div>
+    </div>
+  </section>
+
+  <!-- ══════════ PLAYLIST ══════════ -->
+  <section class="playlist" id="playlist">
+    <div class="section-head dark">
+      <p class="section-eyebrow">turn the volume up</p>
+      <h2 class="section-title">I hid a <span class="st-script gold">message</span> in the music</h2>
+      <p class="section-sub">Five songs. Read the titles in order. That's the whole point.</p>
+    </div>
+
+    <ol class="tracks">
+      <li class="track"><span class="tr-num">01</span><div class="tr-body"><span class="tr-title">P.S. I LOVE YOU</span><span class="tr-artist">Paul Partohap</span></div><span class="tr-heart">♡</span></li>
+      <li class="track"><span class="tr-num">02</span><div class="tr-body"><span class="tr-title">Forever</span><span class="tr-artist">Lewis Capaldi</span></div><span class="tr-heart">♡</span></li>
+      <li class="track"><span class="tr-num">03</span><div class="tr-body"><span class="tr-title">You Are The Reason</span><span class="tr-artist">Calum Scott</span></div><span class="tr-heart">♡</span></li>
+      <li class="track"><span class="tr-num">04</span><div class="tr-body"><span class="tr-title">Beautiful Things</span><span class="tr-artist">Benson Boone</span></div><span class="tr-heart">♡</span></li>
+      <li class="track"><span class="tr-num">05</span><div class="tr-body"><span class="tr-title">Hit Different</span><span class="tr-artist">SZA</span></div><span class="tr-heart">♡</span></li>
+    </ol>
+
+    <div class="message-assembled">
+      <p class="ma-label">read together, they say:</p>
+      <p class="ma-text"><span class="ma-word">P.S. — I love you,</span> <span class="ma-word">forever.</span><br/><span class="ma-word">You are the reason</span> <span class="ma-word">beautiful things</span> <span class="ma-word gold-ink">hit different.</span></p>
+    </div>
+
+    <div class="spotify-embed">
+      <iframe title="Amanda's birthday playlist" src="https://open.spotify.com/embed/playlist/1dPx2lkQEWqvCFgztc2VvU?utm_source=generator&theme=0" width="100%" height="420" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- ══════════ CAKE FINALE ══════════ -->
+  <section class="finale" id="finale">
+    <div class="section-head">
+      <p class="section-eyebrow">one last thing</p>
+      <h2 class="section-title">Make a <span class="st-script">wish</span>, mama</h2>
+      <p class="section-sub">Press and hold the button to blow out your candles. Yes, all thirty… okay, three. Budget cuts.</p>
+    </div>
+
+    <div class="cake-stage">
+      <div class="cake" id="cake" aria-label="Birthday cake with three candles">
+        <div class="candles">
+          <div class="candle"><div class="flame"></div><div class="wick"></div><div class="stick c1"></div></div>
+          <div class="candle"><div class="flame"></div><div class="wick"></div><div class="stick c2"></div></div>
+          <div class="candle"><div class="flame"></div><div class="wick"></div><div class="stick c3"></div></div>
+        </div>
+        <div class="cake-top"></div>
+        <div class="cake-layer l1"><span class="drip d1"></span><span class="drip d2"></span><span class="drip d3"></span><span class="drip d4"></span><span class="drip d5"></span></div>
+        <div class="cake-layer l2"></div>
+        <div class="cake-plate"></div>
+      </div>
+      <button class="blow-btn magnetic" id="blowBtn"><span class="blow-label">hold to blow 🎂</span><span class="blow-ring"></span></button>
+      <p class="wish-note" id="wishNote">…the candles are watching you 👀</p>
+    </div>
+
+    <div class="finale-message" id="finaleMessage" hidden>
+      <p class="fm-script">Happy 30th, my love</p>
+      <p class="fm-body">Finer. Wiser. More accomplished.<br/>And still ridiculously adorable ✨</p>
+      <p class="fm-sign">I love you, mama ❤️<br/><span>— your favourite person (it's me. I checked.)</span></p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>built with an unreasonable amount of love · for <strong>Amanda</strong>, at thirty 🌸</p>
+  </footer>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
