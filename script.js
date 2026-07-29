@@ -55,7 +55,7 @@
     });
   }, { threshold: 0.25, rootMargin: '0px 0px -40px 0px' });
 
-  $$('.reveal:not(.hero .reveal), .letter-line, .card, .film, .section-head').forEach(el => io.observe(el));
+  $$('.reveal:not(.hero .reveal), .letter-line, .card, .ff-caption, .section-head').forEach(el => io.observe(el));
   $$('.track').forEach((el, i) => { el.dataset.i = i; io.observe(el); });
   io.observe($('.message-assembled'));
 
@@ -109,7 +109,7 @@
     });
   }
   addEventListener('pointerdown', e => {
-    if (opened && !e.target.closest('.blow-btn, .film, iframe, a')) miniHearts(e.clientX, e.clientY);
+    if (opened && !e.target.closest('.blow-btn, .ff-frame, iframe, a')) miniHearts(e.clientX, e.clientY);
   });
   function miniHearts(x, y) {
     for (let i = 0; i < 6; i++) {
@@ -156,16 +156,34 @@
     });
   }
 
-  /* ── films: play/pause ──────────────────────────── */
-  $$('.film').forEach(f => {
-    const v = $('video', f), btn = $('.film-play', f);
-    btn.addEventListener('click', () => {
-      $$('.film video').forEach(o => o !== v && (o.pause(), o.closest('.film').classList.remove('playing')));
-      v.play(); f.classList.add('playing'); v.controls = true;
-    });
-    v.addEventListener('pause', () => { f.classList.remove('playing'); v.controls = false; });
-    v.addEventListener('ended', () => { f.classList.remove('playing'); v.controls = false; });
-  });
+  /* ── feature film: parallax + viewport autoplay ── */
+  const ffFrame = $('#ffFrame'), ffVideo = $('#ffVideo');
+  if (ffFrame && ffVideo) {
+    // only spend bandwidth/battery while it's on screen
+    new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) ffVideo.play().catch(() => {});
+        else ffVideo.pause();
+      });
+    }, { threshold: 0.25 }).observe(ffFrame);
+
+    if (!reduceMotion) {
+      let ffTick = false;
+      const ffParallax = () => {
+        ffTick = false;
+        const r = ffFrame.getBoundingClientRect();
+        if (r.bottom < -80 || r.top > innerHeight + 80) return;
+        // -1 (below viewport) .. 0 (centered) .. 1 (above viewport)
+        const p = (r.top + r.height / 2 - innerHeight / 2) / (innerHeight / 2 + r.height / 2);
+        ffFrame.style.transform = `translateY(${p * 26}px) scale(${1 - Math.abs(p) * 0.05})`;
+        ffVideo.style.transform = `translateY(${p * -7}%)`;
+      };
+      addEventListener('scroll', () => {
+        if (!ffTick) { ffTick = true; requestAnimationFrame(ffParallax); }
+      }, { passive: true });
+      ffParallax();
+    }
+  }
 
   /* ── confetti helpers ───────────────────────────── */
   const CONF_COLORS = ['#d4707c', '#c39a4e', '#f6dfd9', '#b84a5a', '#e9d5ae', '#ffffff'];
