@@ -24,6 +24,7 @@ html {
   scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
+  overflow-x: clip;
 }
 html::-webkit-scrollbar,
 body::-webkit-scrollbar {
@@ -207,15 +208,18 @@ img {
 }
 .cursor-dot {
   position: fixed;
+  left: 0;
+  top: 0;
   z-index: 99;
   pointer-events: none;
   font-size: 14px;
   color: var(--rose);
-  transform: translate(-50%, -50%) scale(0);
-  transition: transform 0.15s ease;
+  transform: translate(-100vw, -100vh) scale(0);
+  transition: opacity 0.2s ease;
+  opacity: 0;
 }
 body.has-cursor .cursor-dot {
-  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
 }
 @media (hover: none) {
   .cursor-dot {

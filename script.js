@@ -105,8 +105,7 @@
   if (matchMedia('(hover:hover)').matches && !reduceMotion) {
     addEventListener('mousemove', e => {
       document.body.classList.add('has-cursor');
-      dot.style.left = e.clientX + 12 + 'px';
-      dot.style.top = e.clientY + 14 + 'px';
+      dot.style.transform = `translate(${e.clientX + 12}px, ${e.clientY + 14}px)`;
     });
   }
   addEventListener('pointerdown', e => {
