@@ -47,17 +47,11 @@
       en.target.classList.add('shown');
       if (en.target.classList.contains('letter-line'))
         $$('.hl', en.target).forEach((h, i) => setTimeout(() => h.classList.add('on'), 400 + i * 220));
-      if (en.target.classList.contains('track'))
-        setTimeout(() => en.target.classList.add('on'), (+en.target.dataset.i || 0) * 180);
-      if (en.target.classList.contains('message-assembled'))
-        $$('.ma-word', en.target).forEach((w, i) => setTimeout(() => w.classList.add('on'), 300 + i * 550));
       io.unobserve(en.target);
     });
   }, { threshold: 0.25, rootMargin: '0px 0px -40px 0px' });
 
   $$('.reveal:not(.hero .reveal), .letter-line, .card, .ff-caption, .section-head').forEach(el => io.observe(el));
-  $$('.track').forEach((el, i) => { el.dataset.i = i; io.observe(el); });
-  io.observe($('.message-assembled'));
 
   /* ── falling petals canvas ──────────────────────── */
   const canvas = $('#petals'), ctx = canvas.getContext('2d');
